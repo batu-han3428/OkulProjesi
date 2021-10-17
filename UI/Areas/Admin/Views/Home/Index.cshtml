@@ -1,0 +1,51 @@
+﻿@section Style{
+    <link rel="stylesheet" type="text/css" href="~/css/AdminLogin.css" />
+}
+
+    <div id="card" class="col-12 d-flex justify-content-center" style="height:100vh;">
+        <div class="card col-md-5">
+            <div class="card-header text-center">
+                Giriş Ekranı
+            </div>
+            <div class="card-body">
+                <form class="needs-validation" novalidate>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="." required>
+                        <label for="floatingInput">Email</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="a" required>
+                        <label for="floatingPassword">Parola</label>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-outline-primary w-100" type="submit">Giriş</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    @section Scripts{
+        <script>
+            (function () {
+                'use strict'
+
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.querySelectorAll('.needs-validation')
+
+                // Loop over them and prevent submission
+                Array.prototype.slice.call(forms)
+                    .forEach(function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (!form.checkValidity()) {
+                                event.preventDefault()
+                                event.stopPropagation()
+                            }
+
+                            form.classList.add('was-validated')
+                        }, false)
+                    })
+            })()
+        </script>
+    }
