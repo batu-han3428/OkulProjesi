@@ -13,5 +13,10 @@ namespace UI.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public IActionResult Dashbord()
+        {
+            return View();
+        }
     }
 }
