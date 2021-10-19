@@ -21,6 +21,7 @@ namespace UI.Extension
             services.Configure<IdentityOptions>(options => {
                 options.Password.RequireDigit = true;//şifrede rakam olsun
                 options.Password.RequireLowercase = true;//şifrede küçük harf olsun
+                options.Password.RequireUppercase = true;//şifrede büyük harf olsun
                 options.Password.RequiredLength = 6;//şifre en az 6 karekter olsun
                 options.Password.RequiredUniqueChars = 2;//en az 2 benzersiz karakter olsun
                 options.Password.RequireNonAlphanumeric = true;//şifrede harf dışında $,@ gibi karakter olmalı
@@ -38,8 +39,8 @@ namespace UI.Extension
         {
             services.ConfigureApplicationCookie(options =>
             {
-                options.LoginPath = "/Areas/Admin/Views/Home/Index";//default login ekrannı
-                options.LogoutPath = "/Areas/Admin/Views/Home/Index";//çıkış
+                options.LoginPath = "/Areas/Admin/Views/Home/Login";//default login ekrannı
+                options.LogoutPath = "/Areas/Admin/Views/Home/Login";//çıkış
                 options.SlidingExpiration = true; // default time 20 dk. üye sitede 20 dk bir işlem yapmazsa otomatik atılır
                 options.Cookie.HttpOnly = true;
                 options.Cookie.Name = "UyeCookie";
