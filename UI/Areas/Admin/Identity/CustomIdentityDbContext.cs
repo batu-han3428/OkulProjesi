@@ -9,7 +9,7 @@ namespace UI.Areas.Admin
 {
     public class CustomIdentityDbContext:IdentityDbContext<CustomUser>
     {
-        public CustomIdentityDbContext(DbContextOptions<CustomIdentityDbContext> options)
+        public CustomIdentityDbContext(DbContextOptions<CustomIdentityDbContext> options):base(options)
         {
 
         }
