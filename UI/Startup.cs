@@ -25,7 +25,7 @@ namespace UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.IdentityServerAyarlari();
+            services.IdentityServerAyarlari(Configuration);
             services.CookieAyarlari();
         }
 

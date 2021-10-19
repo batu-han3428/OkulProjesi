@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,9 @@ namespace UI.Extension
 {
     public static class ServiceCollectionExtension
     {
-        public static IServiceCollection IdentityServerAyarlari(this IServiceCollection services)
+        public static IServiceCollection IdentityServerAyarlari(this IServiceCollection services,IConfiguration Configuration)
         {
-            services.AddDbContext<CustomIdentityDbContext>(opt => opt.UseSqlServer("Server=(localdb)\\MsSqlLocalDb;Database=denemeTekrar;Trusted_Connection=true;"));
+            services.AddDbContext<CustomIdentityDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("IdentityDb")));
 
             services.AddIdentity<CustomUser, IdentityRole>().AddEntityFrameworkStores<CustomIdentityDbContext>().AddDefaultTokenProviders();
 
