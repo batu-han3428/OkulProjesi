@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace UI.Migrations
 {
-    public partial class okul : Migration
+    public partial class identity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

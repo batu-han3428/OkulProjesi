@@ -10,7 +10,7 @@ using UI.Areas.Admin;
 namespace UI.Migrations
 {
     [DbContext(typeof(CustomIdentityDbContext))]
-    [Migration("20211019163534_identity")]
+    [Migration("20211020064448_identity")]
     partial class identity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
