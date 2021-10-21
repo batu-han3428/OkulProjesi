@@ -52,13 +52,11 @@ namespace UI
 
             app.UseEndpoints(endpoints =>
             {
-                app.UseEndpoints(endpoints =>
-                {
-                    endpoints.MapControllerRoute(
+               
+                endpoints.MapControllerRoute(
                       name: "areas",
-                      pattern: "{area:exists}/{controller=Dashbord}/{action=dashbord}/{id?}"
-                    );
-                });
+                      pattern: "{area:exists}/{controller=Dashbord}/{action=dashbord}/{id?}");
+               
 
                 endpoints.MapControllerRoute(
                     name: "default",
