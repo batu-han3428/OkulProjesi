@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace UI.Areas.Admin.Controllers
 {
-    [Authorize]
-    [Area("Admin")]
+
+    [Area("Admin"), Authorize(Roles ="admin")]
     public class DashbordController : Controller
     {
         public DashbordController()
@@ -17,6 +17,11 @@ namespace UI.Areas.Admin.Controllers
         }
 
         public IActionResult dashbord()
+        {
+            return View();
+        }
+
+        public IActionResult deneme()
         {
             return View();
         }

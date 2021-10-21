@@ -56,7 +56,7 @@ namespace UI
                 {
                     endpoints.MapControllerRoute(
                       name: "areas",
-                      pattern: "{area:exists}/{controller=Home}/{action=Login}/{id?}"
+                      pattern: "{area:exists}/{controller=Dashbord}/{action=dashbord}/{id?}"
                     );
                 });
 

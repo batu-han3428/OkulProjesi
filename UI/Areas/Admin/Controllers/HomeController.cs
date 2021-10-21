@@ -34,6 +34,7 @@ namespace UI.Areas.Admin.Controllers
             }
             else
             {
+
                 var user = await userManager.FindByEmailAsync(model.Email);
 
                 if (user == null)
@@ -47,16 +48,21 @@ namespace UI.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Bu mail onaylanmamıştır. Lütfen mail box'ınızı kontrol ediniz");
                     return View(model);
                 }
-
-                var result = await signInManager.PasswordSignInAsync(user, model.Password, false,false);
+                //model.RememberMe
+                var result = await signInManager.PasswordSignInAsync(user, model.Password, false, true);
 
                 if (result.Succeeded)
                 {
+
                     return RedirectToAction("dashbord", "Dashbord", new { area = "Admin" });
+                }           
+                else
+                {
+                   
+                    ModelState.AddModelError("", "Mail yada parola yanlış");
+                    return View(model);
                 }
 
-                ModelState.AddModelError("","Email yada Parola yanlış");
-                return View(model);
             }
         }
 
@@ -100,6 +106,12 @@ namespace UI.Areas.Admin.Controllers
                 ModelState.AddModelError("","Ters giden bişiler oldu");
                 return View(model);
             }
-        }  
+        }
+
+        
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
     }
 }

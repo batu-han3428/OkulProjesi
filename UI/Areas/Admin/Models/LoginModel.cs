@@ -8,13 +8,14 @@ namespace UI.Areas.Admin.Models
 {
     public class LoginModel
     {
-        [Required]
+        [Required(ErrorMessage ="Mail alanı boş geçilemez")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Parola alanı boş geçilemez")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
         public string Token { get; set; }
+        public bool RememberMe { get; set; }
     }
 }

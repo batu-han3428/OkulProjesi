@@ -39,13 +39,14 @@ namespace UI.Extension
         {
             services.ConfigureApplicationCookie(options =>
             {
-                options.LoginPath = "/Areas/Admin/Views/Home/Login";//default login ekrannı
-                options.LogoutPath = "/Areas/Admin/Views/Home/Login";//çıkış
+                options.LoginPath = "/Admin/Home/Login";//default login ekrannı
+                options.LogoutPath = "/Admin/Home/Login";//çıkış
+                options.AccessDeniedPath = "/Admin/Home/AccessDenied";//Sayfaya yetkin yetmiyorsa bu ekran çıkar
                 options.SlidingExpiration = true; // default time 20 dk. üye sitede 20 dk bir işlem yapmazsa otomatik atılır
                 options.Cookie.HttpOnly = true;
                 options.Cookie.Name = "UyeCookie";
                 options.Cookie.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Strict;
-                options.ExpireTimeSpan = TimeSpan.FromMinutes(40);
+                //options.ExpireTimeSpan = TimeSpan.FromMinutes(40);
             });
             return services;
         }
